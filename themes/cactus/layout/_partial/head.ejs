@@ -38,10 +38,10 @@
     <!-- title -->
     <title><%= page_title() %></title>
     <!-- styles -->
-    <%- css('/css/style') %>
+    <%- css('css/style') %>
     <!-- persian styles -->
     <% if (theme.direction) { %>
-      <%- css('/css/rtl') %>
+      <%- css('css/rtl') %>
     <% } %>
     <!-- rss -->
     <% if (theme.rss === '' && config.feed && config.feed.path) { %>
