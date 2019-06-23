@@ -1,0 +1,27 @@
+[
+    {
+        "name": "React Weather",
+        "url": "https://github.com/jamesroyston/weatherific-fork",
+        "desc": "React app utilizing the Open Weather API."
+    },
+    {
+        "name": "Tic-Tac-Toe",
+        "url": "https://github.com/jamesroyston/tictactoe",
+        "desc": "Factory function pattern example."
+    },
+    {
+        "name": "Reading List",
+        "url": "https://github.com/jamesroyston/library-odin-project",
+        "desc": "Constructor function pattern example."
+    },
+    {
+        "name": "Etch a Sketch",
+        "url": "https://github.com/jamesroyston/etch_a_sketch",
+        "desc": "DOM manipulation-- 'nuff said."
+    },
+    {
+        "name": "Calculator",
+        "url": "https://github.com/jamesroyston/js-calculator",
+        "desc": "A calculator built with plain 'ol JavaScript."
+    }
+]

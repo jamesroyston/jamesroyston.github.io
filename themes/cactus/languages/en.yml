@@ -1,0 +1,63 @@
+nav:
+  home: Home
+  about: About
+  articles: Writing
+  tag: Tag
+  category: Category
+  projects: Projects
+  search: Search
+  resume: Resumé
+
+footer:
+  copyright: Copyright
+
+index:
+  short_bio: I'm a web developer working in OK, US. 
+  find_me_on: Connect with me through
+  enum_comma: ','
+  enum_and: and
+  articles: // write
+  projects: // code
+  topics: Topics
+  most_recent: Most recent
+
+post:
+  desktop:
+    previous: Previous post
+    next: Next post
+    back_to_top: Back to top
+    share: Share post
+  mobile:
+    menu: Menu
+    toc: TOC
+    back_to_top: Top
+    share: Share
+
+search:
+  search: Search...
+  no_results: No results found.
+
+tag_cloud:
+  zero: No tags
+
+pagination:
+  page: Page %d of %d
+
+counter:
+  tag_cloud:
+    zero: No tags
+    one: ""
+    other: ""
+
+  categories:
+    zero: No categories
+    one: ""
+    other: ""
+
+  archive_posts:
+    zero: No posts.
+    one: ""
+    other: ""
+
+comments:
+  no_js: Please enable JavaScript to view the comments.
