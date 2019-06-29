@@ -1,5 +1,10 @@
 [
     {
+        "name": "TodoMVC Clone (in progress)",
+        "url": "https://github.com/jamesroyston/todomvc-clone/",
+        "desc": "The quintessential todo app on every devs portfolio- built with React, on a whim. (6/29: need to add update and delete functionality)"
+    },
+    {
         "name": "React Weather",
         "url": "https://github.com/jamesroyston/weatherific-fork",
         "desc": "React app utilizing the Open Weather API."
