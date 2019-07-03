@@ -1,8 +1,8 @@
 [
     {
-        "name": "TodoMVC Clone (in progress)",
+        "name": "TodoMVC Clone",
         "url": "https://github.com/jamesroyston/todomvc-clone/",
-        "desc": "The quintessential todo app on every devs portfolio- built with React, on a whim. (6/29: need to add update and delete functionality)"
+        "desc": "The quintessential todo app on every dev's portfolio- built with React, on a whim. (completed July 2, 2019)"
     },
     {
         "name": "React Weather",
