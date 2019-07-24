@@ -1,10 +1,8 @@
 ---
-title: heroku-fullstack-js-tutorial
+title: How to deploy your express-mongoDB API + React frontend to Heroku
 date: 2019-07-24 17:58:42
 tags:
 ---
-
-# How to deploy your express-mongoDB API + React frontend to Heroku
 
 If you're like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the "backend" works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. 
 

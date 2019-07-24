@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+    <meta name="description" content="If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to">
 <meta property="og:type" content="article">
-<meta property="og:title" content="heroku-fullstack-js-tutorial">
-<meta property="og:url" content="https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/index.html">
+<meta property="og:title" content="How to deploy your express-mongoDB API + React frontend to Heroku">
+<meta property="og:url" content="https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/index.html">
 <meta property="og:site_name" content="James Royston | Web Developer">
-<meta property="og:description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+<meta property="og:description" content="If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-24T23:14:13.750Z">
+<meta property="og:updated_time" content="2019-07-24T23:17:24.712Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="heroku-fullstack-js-tutorial">
-<meta name="twitter:description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+<meta name="twitter:title" content="How to deploy your express-mongoDB API + React frontend to Heroku">
+<meta name="twitter:description" content="If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to">
     
     
         
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>heroku-fullstack-js-tutorial</title>
+    <title>How to deploy your express-mongoDB API + React frontend to Heroku</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- persian styles -->
@@ -86,21 +86,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&text=heroku-fullstack-js-tutorial"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&is_video=false&description=heroku-fullstack-js-tutorial"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=heroku-fullstack-js-tutorial&body=Check out this article: https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&name=heroku-fullstack-js-tutorial&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&text=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&is_video=false&description=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to deploy your express-mongoDB API + React frontend to Heroku&body=Check out this article: https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&name=How to deploy your express-mongoDB API + React frontend to Heroku&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><span class="toc-number">1.</span> <span class="toc-text">How to deploy your express-mongoDB API + React frontend to Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -112,7 +112,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        heroku-fullstack-js-tutorial
+        How to deploy your express-mongoDB API + React frontend to Heroku
     </h1>
 
 
@@ -139,7 +139,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1 id="How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><a href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku" class="headerlink" title="How to deploy your express-mongoDB API + React frontend to Heroku"></a>How to deploy your express-mongoDB API + React frontend to Heroku</h1><p>If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. </p>
+    <p>If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. </p>
 <p><strong>Some assumptions I’m making</strong></p>
 <ul>
 <li>you already have a react app created.</li>
@@ -229,21 +229,21 @@ eyJoaXN0b3J5IjpbLTE4ODY4MjY2ODldfQ==
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><span class="toc-number">1.</span> <span class="toc-text">How to deploy your express-mongoDB API + React frontend to Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&text=heroku-fullstack-js-tutorial"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&is_video=false&description=heroku-fullstack-js-tutorial"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=heroku-fullstack-js-tutorial&body=Check out this article: https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&name=heroku-fullstack-js-tutorial&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&text=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&is_video=false&description=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=How to deploy your express-mongoDB API + React frontend to Heroku&body=Check out this article: https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&title=How to deploy your express-mongoDB API + React frontend to Heroku"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/How to deploy your express-mongoDB API + Reach frontend to Heroku/&name=How to deploy your express-mongoDB API + React frontend to Heroku&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
