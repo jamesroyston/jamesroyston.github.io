@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="heroku-fullstack-js-tutorial">
+<meta property="og:url" content="https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/index.html">
+<meta property="og:site_name" content="James Royston | Web Developer">
+<meta property="og:description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-24T23:14:13.750Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="heroku-fullstack-js-tutorial">
+<meta name="twitter:description" content="How to deploy your express-mongoDB API + React frontend to HerokuIf you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, f">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>heroku-fullstack-js-tutorial</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/jamesroyston/">Projects</a></li>
+         
+          <li><a href="https://www.dropbox.com/s/dqpq5mpqkmstcz7/resume%28dev%29.pdf?raw=1">Resumé</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/06/23/Goals/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&text=heroku-fullstack-js-tutorial"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&is_video=false&description=heroku-fullstack-js-tutorial"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=heroku-fullstack-js-tutorial&body=Check out this article: https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&name=heroku-fullstack-js-tutorial&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><span class="toc-number">1.</span> <span class="toc-text">How to deploy your express-mongoDB API + React frontend to Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        heroku-fullstack-js-tutorial
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">James Royston | Web Developer</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-07-24T22:58:42.000Z" itemprop="datePublished">2019-07-24</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><a href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku" class="headerlink" title="How to deploy your express-mongoDB API + React frontend to Heroku"></a>How to deploy your express-mongoDB API + React frontend to Heroku</h1><p>If you’re like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the “backend” works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. </p>
+<p><strong>Some assumptions I’m making</strong></p>
+<ul>
+<li>you already have a react app created.</li>
+<li>you already have an express app created.</li>
+<li>your express app is connected to mongo atlas already.</li>
+</ul>
+<p><strong>Resources I used</strong></p>
+<p>There are a couple of blog posts that go over deploying your react/express app in much higher detail and, quite frankly, they were extremely helpful in my endeavors. The only thing those posts lacked was the mongoDB and mongoAtlas portion. Here’s those articles: </p>
+<ul>
+<li>Dave Ceddia: <a href="https://daveceddia.com/deploy-react-express-app-heroku/" target="_blank" rel="noopener">https://daveceddia.com/deploy-react-express-app-heroku/</a></li>
+<li>Chloe Chong: <a href="https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18" target="_blank" rel="noopener">https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18</a></li>
+</ul>
+<hr>
+<h4 id="Okay-let’s-get-started"><a href="#Okay-let’s-get-started" class="headerlink" title="Okay, let’s get started"></a>Okay, let’s get started</h4><p>1) first copy your react app (the folder containing the project files) is inside of the root of your express project like so:<br> </p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">./express-app</span><br><span class="line">| --- client/</span><br><span class="line">| ------- package.json</span><br><span class="line">| ------- index.js</span><br><span class="line">| ------- src/</span><br><span class="line">| ----------- app.js</span><br><span class="line">| ----------- components/</span><br><span class="line">| --- index.js</span><br><span class="line">| --- package.json</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>2) Now we need to set up the proxy so you can call the express api from React without using <code>http://localhost:3001</code> (port number isn’t important for this ex). Navigate to your clientside <code>package.json</code> file and add:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">"proxy": "http://localhost:3001"</span><br></pre></td></tr></tbody></table></figure>
+
+<p>3) Now we need to replace <code>http://localhost:3001</code> with <code>/api/yourDefaultRoute</code> in any AJAX calls made in your React app. If you’re using Redux, this will likely be in your <code>actions.js</code> file(s). If you’re using local component state, it’ll likely be in any components that use the <code>componentDidMount()</code> lifecycle hook to fetch data. Ex: </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">componentDidMount() {</span><br><span class="line">	fetch('/api/yourDefaultRoute') <------ right THERE! :) </span><br><span class="line">		.then(res => res.json())</span><br><span class="line">		.then(res => console.log(res))</span><br><span class="line">		.catch(err => console.log(err))</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+
+<p>4) Now we’ll go back into the root directory of your express app and open up <code>index.js</code>. We need to ensure the following is in there:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// index.js</span><br><span class="line">const cors = require('cors')</span><br><span class="line">const path = require('path')</span><br><span class="line"></span><br><span class="line">// prevents cors headaches when your react app calls your api</span><br><span class="line">app.use(cors())</span><br><span class="line"></span><br><span class="line">// serves the built version of your react app</span><br><span class="line">app.use(express.static(path.join(__dirname, 'client/build')))</span><br><span class="line">app.get('*', (req, res) => {</span><br><span class="line">	res.sendFile(path.join(__dirname + '/client/build/index.html'))</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">// for your REST calls, append api to the beginning of the path</span><br><span class="line">//ex: </span><br><span class="line">app.get('/api/yourRouteName', async (request, resolve) => {</span><br><span class="line">	try {</span><br><span class="line">		console.log(resolve.json())</span><br><span class="line">	} catch (err) {</span><br><span class="line">		console.log(resolve.json( {message: error} )</span><br><span class="line">	}</span><br><span class="line">})</span><br><span class="line"></span><br><span class="line">// ensures the proxy we set earlier is pointing to your express api</span><br><span class="line">const port = process.env.PORT || 3001</span><br><span class="line">app.listen(port, () => {</span><br><span class="line">	console.log(`listening on port ${port}`)</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<p>5) Phew, getting there! Now navigate to your root (express’) package.json and add this script: <code>"heroku-postbuild": "cd client && npm install && npm run build"</code> to the <code>"scripts"</code> object. </p>
+<p>Ok so that concludes the setup in your project folder. Feel free to test that everything still works by running your react app and express api in separate terminals and test your AJAX calls. Everything working? Eff yeah, let’s continue!</p>
+<p>6) Now we just need to make sure we have heroku installed on our machine, create the heroku app, and run the deploy command. Here’s the command for installing heroku. </p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew tap heroku/brew && brew install heroku</span><br></pre></td></tr></tbody></table></figure>
+
+<p>(if you are on windows or linux, here’s the instructions for those OSes: <a href="https://devcenter.heroku.com/articles/heroku-cli" target="_blank" rel="noopener">https://devcenter.heroku.com/articles/heroku-cli</a>)</p>
+<p>7) Did that work? Great! Now run each of these, one after the other:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">heroku create my-project</span><br><span class="line">heroku login //this will redirect you to sign in via your default browser</span><br><span class="line">git push heroku master</span><br></pre></td></tr></tbody></table></figure>
+
+<p>If all went well, you should see the build logs flood your terminal and the end result should look something like this:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-----> Build succeeded!</span><br><span class="line">-----> Discovering process types</span><br><span class="line">       Procfile declares types     -> (none)</span><br><span class="line">       Default types for buildpack -> web</span><br><span class="line">-----> Compressing...</span><br><span class="line">       Done: 49.3M</span><br><span class="line">-----> Launching...</span><br><span class="line">       Released v13</span><br><span class="line">       https://my-project.herokuapp.com/ deployed to Heroku</span><br></pre></td></tr></tbody></table></figure>
+
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v8">😄</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f386.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f386.png?v8">🎆</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8">🔥</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8">🔥</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f525.png?v8">🔥</span> </p>
+<p>8) LAST and MOST CRUCIAL STEP <em>IMO</em>: go into mongo atlas and ensure you’ve enabled a global IP address whitelist for your mongoDB cluster. If you don’t, your app will be running but your data won’t ever get fetched. You’ll have a network tab full of 503 network errors <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f605.png?v8">😅</span> (<em>this had me stuck for quite a while. Nevermind the fact that I probably should have been asleep at the time I was hammering away on this project at 2am….</em>)</p>
+<p><strong>SICK, we are all done. Go to your project’s URL (provided by the terminal, or via heroku’s dashboard on their website) and be amazed by what you’ve accomplished!</strong></p>
+<p>If you want to see my working example, you can check it out here:<br><a href="http://mern-app-msg.herokuapp.com/" target="_blank" rel="noopener">http://mern-app-msg.herokuapp.com/</a> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png?v8) center/contain" data-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2764.png?v8">❤</span></p>
+<p>P.S. This was my first blog post. Feedback is welcome! I hope y’all enjoyed this post and/or found it useful. </p>
+<p>–<br>James</p>
+<blockquote>
+<p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>.</p>
+</blockquote>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4ODY4MjY2ODldfQ==
+--><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/jamesroyston/">Projects</a></li>
+         
+          <li><a href="https://www.dropbox.com/s/dqpq5mpqkmstcz7/resume%28dev%29.pdf?raw=1">Resumé</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#How-to-deploy-your-express-mongoDB-API-React-frontend-to-Heroku"><span class="toc-number">1.</span> <span class="toc-text">How to deploy your express-mongoDB API + React frontend to Heroku</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Okay-let’s-get-started"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">Okay, let’s get started</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&text=heroku-fullstack-js-tutorial"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&is_video=false&description=heroku-fullstack-js-tutorial"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=heroku-fullstack-js-tutorial&body=Check out this article: https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&title=heroku-fullstack-js-tutorial"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://jamesroyston.dev/2019/07/24/heroku-fullstack-js-tutorial/&name=heroku-fullstack-js-tutorial&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 James Royston
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="http://github.com/jamesroyston/">Projects</a></li>
+         
+          <li><a href="https://www.dropbox.com/s/dqpq5mpqkmstcz7/resume%28dev%29.pdf?raw=1">Resumé</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-142541158-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
