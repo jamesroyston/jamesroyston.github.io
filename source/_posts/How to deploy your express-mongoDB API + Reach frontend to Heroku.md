@@ -33,11 +33,11 @@ There are a couple of blog posts that go over deploying your react/express app i
 ```
 
 2) Now we need to set up the proxy so you can call the express api from React without using `http://localhost:3001` (port number isn't important for this ex). Navigate to your clientside `package.json` file and add:
-```
+```json
 "proxy": "http://localhost:3001"
 ```
 3) Now we need to replace `http://localhost:3001` with `/api/yourDefaultRoute` in any AJAX calls made in your React app. If you're using Redux, this will likely be in your `actions.js` file(s). If you're using local component state, it'll likely be in any components that use the `componentDidMount()` lifecycle hook to fetch data. Ex: 
-```
+```javascript
 ...
 componentDidMount() {
 	fetch('/api/yourDefaultRoute') <------ right THERE! :) 
@@ -49,7 +49,7 @@ componentDidMount() {
 
 4) Now we'll go back into the root directory of your express app and open up `index.js`. We need to ensure the following is in there:
 
-``` 
+``` javascript
 // index.js
 const cors = require('cors')
 const path = require('path')
@@ -85,13 +85,13 @@ app.listen(port, () => {
 Ok so that concludes the setup in your project folder. Feel free to test that everything still works by running your react app and express api in separate terminals and test your AJAX calls. Everything working? Eff yeah, let's continue!
 
 6) Now we just need to make sure we have heroku installed on our machine, create the heroku app, and run the deploy command. Here's the command for installing heroku. 
-```
+```bash
 brew tap heroku/brew && brew install heroku
 ```
 (if you are on windows or linux, here's the instructions for those OSes: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli))
 
 7) Did that work? Great! Now run each of these, one after the other:
-```
+```bash
 git init
 heroku create my-project
 heroku login //this will redirect you to sign in via your default browser
