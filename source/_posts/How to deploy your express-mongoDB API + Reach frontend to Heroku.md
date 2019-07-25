@@ -91,7 +91,7 @@ brew tap heroku/brew && brew install heroku
 (if you are on windows or linux, here's the instructions for those OSes: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli))
 
 7) Did that work? Great! Now run each of these, one after the other:
-```bash
+```
 git init
 heroku create my-project
 heroku login //this will redirect you to sign in via your default browser

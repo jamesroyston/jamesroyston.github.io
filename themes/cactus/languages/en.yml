@@ -15,9 +15,9 @@ index:
   short_bio: I'm a web developer working in OK, US. 
   find_me_on: Connect with me through
   enum_comma: ','
-  enum_and: and
-  articles: // write
-  projects: // code
+  enum_and: '&'
+  articles: Articles
+  projects: Code
   topics: Topics
   most_recent: Most recent
 

@@ -417,7 +417,7 @@ body table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 13px;
+  font-size: 16px;
   overflow: auto;
   display: block;
 }
@@ -426,16 +426,11 @@ body th {
   border-bottom: 1px dashed #666;
   color: #eee;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 17px;
 }
 body td {
   padding: 9px 8px 0;
   border-bottom: none;
-}
-@font-face {
-  font-style: normal;
-  font-family: "Meslo LG";
-  src: local("Meslo LG S"), url("../lib/meslo-LG/MesloLGS-Regular.ttf") format("truetype");
 }
 *,
 *:before,
@@ -456,9 +451,9 @@ body {
   background-color: #1d1f21;
   color: #c9cacc;
   font-display: swap;
-  font-weight: 400;
-  font-size: 15px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   flex: 1;
@@ -1372,63 +1367,67 @@ article .content .caption {
   content: ")";
 }
 .highlight {
-  background: #002b36;
-  color: #839496;
+  background: #282828;
+  color: #ddd;
+}
+.highlight .code .tag,
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .literal,
+.highlight .code .strong,
+.highlight .code .name {
+  color: #fb4934;
+}
+.highlight .code .code {
+  color: #458588;
+}
+.highlight .code .class .title {
+  color: #83a598;
+}
+.highlight .code .attribute,
+.highlight .code .symbol,
+.highlight .code .regexp,
+.highlight .code .link {
+  color: #458588;
+}
+.highlight .code .string,
+.highlight .code .bullet,
+.highlight .code .subst,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .emphasis,
+.highlight .code .type,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo,
+.highlight .code .addition,
+.highlight .code .variable,
+.highlight .code .template-tag,
+.highlight .code .template-variable {
+  color: #b8bb26;
 }
 .highlight .code .comment,
-.highlight .code .quote {
-  color: #586e75;
+.highlight .code .quote,
+.highlight .code .deletion,
+.highlight .code .meta {
+  color: #a89984;
 }
 .highlight .code .keyword,
 .highlight .code .selector-tag,
-.highlight .code .addition {
-  color: #859900;
-}
-.highlight .code .number,
-.highlight .code .string,
-.highlight .code .meta .meta-string,
 .highlight .code .literal,
 .highlight .code .doctag,
-.highlight .code .regexp {
-  color: #2aa198;
-}
 .highlight .code .title,
 .highlight .code .section,
-.highlight .code .name,
-.highlight .code .selector-id,
-.highlight .code .selector-class {
-  color: #268bd2;
-}
-.highlight .code .attribute,
-.highlight .code .attr,
-.highlight .code .variable,
-.highlight .code .template-variable,
-.highlight .code .class .title,
-.highlight .code .type {
-  color: #b58900;
-}
-.highlight .code .symbol,
-.highlight .code .bullet,
-.highlight .code .subst,
-.highlight .code .meta,
-.highlight .code .meta .keyword,
-.highlight .code .selector-attr,
-.highlight .code .selector-pseudo,
-.highlight .code .link {
-  color: #cb4b16;
-}
-.highlight .code .built_in,
-.highlight .code .deletion {
-  color: #dc322f;
-}
-.highlight .code .formula {
-  background: #073642;
-}
-.highlight .code .emphasis {
-  font-style: italic;
-}
-.highlight .code .strong {
+.highlight .code .type,
+.highlight .code .selector-id {
   font-weight: bold;
+}
+.highlight .code .number {
+  color: #b16286;
+}
+.highlight .code .operator {
+  color: #fe8019;
 }
 pre {
   overflow-x: auto;
@@ -1436,7 +1435,7 @@ pre {
   padding-bottom: 0;
   border: 1px dotted #666;
   border-radius: 4px;
-  font-size: 13px;
+  font-size: 16px;
   font-family: "Menlo", "Meslo LG", monospace;
   line-height: 22px;
   -webkit-border-radius: 4px;
@@ -1457,7 +1456,7 @@ code {
   margin: 1rem 0;
   padding: 10px 15px;
   border-radius: 4px;
-  background: 'solarized-dark';
+  background: 'gruvbox-dark';
   font-family: "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
