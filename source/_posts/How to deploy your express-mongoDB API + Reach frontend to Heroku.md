@@ -4,7 +4,7 @@ date: 2019-07-24 17:58:42
 tags:
 ---
 
-If you're like me, you are probably a frontend dev whose infatuated with JavaScript and curious about how the "backend" works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. 
+If you're like me, you're probably a frontend dev who enjoys writing JavaScript. But you're also curious about how the "backend" works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. 
 
 **Some assumptions I'm making**
 - you already have a react app created.
@@ -18,7 +18,9 @@ There are a couple of blog posts that go over deploying your react/express app i
 - Chloe Chong: [https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
 
 -----
+
 #### Okay, let's get started
+
 1) first copy your react app (the folder containing the project files) is inside of the root of your express project like so:
  ```
 ./express-app

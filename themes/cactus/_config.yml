@@ -29,8 +29,9 @@ social_links:
   github: http://github.com/jamesroyston
   # twitter: /
   # facebook: /
-  linkedin: https://www.linkedin.com/in/jtroyston/
+  linkedin: https://www.linkedin.com/in/jtroyston
   mail: mailto:jamesroyston03@gmail.com
+  dev: https://dev.to/jamesroyston
 
 # Customize the overview with displaying a tagcloud on the index page.
 # Options: https://hexo.io/docs/helpers.html#tagcloud
@@ -100,7 +101,7 @@ favicon:
 
 # The color scheme that should be used to highlight codeblocks.
 # See source/css/_highlight for a list of all available color schemes.
-highlight: gruvbox-dark
+highlight: monokai
 
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.

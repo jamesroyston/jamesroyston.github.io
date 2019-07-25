@@ -417,7 +417,7 @@ body table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 16px;
+  font-size: 14px;
   overflow: auto;
   display: block;
 }
@@ -426,7 +426,7 @@ body th {
   border-bottom: 1px dashed #666;
   color: #eee;
   font-weight: bold;
-  font-size: 17px;
+  font-size: 15px;
 }
 body td {
   padding: 9px 8px 0;
@@ -452,7 +452,7 @@ body {
   color: #c9cacc;
   font-display: swap;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.725;
   text-rendering: geometricPrecision;
@@ -492,6 +492,7 @@ body {
 }
 .content a.icon {
   background: none;
+  font-size: 1.2em;
 }
 .content a.icon:hover {
   color: #d480aa;
@@ -1367,7 +1368,7 @@ article .content .caption {
   content: ")";
 }
 .highlight {
-  background: #282828;
+  background: #272822;
   color: #ddd;
 }
 .highlight .code .tag,
@@ -1376,19 +1377,19 @@ article .content .caption {
 .highlight .code .literal,
 .highlight .code .strong,
 .highlight .code .name {
-  color: #fb4934;
+  color: #f92672;
 }
 .highlight .code .code {
-  color: #458588;
+  color: #66d9ef;
 }
 .highlight .code .class .title {
-  color: #83a598;
+  color: #fff;
 }
 .highlight .code .attribute,
 .highlight .code .symbol,
 .highlight .code .regexp,
 .highlight .code .link {
-  color: #458588;
+  color: #bf79db;
 }
 .highlight .code .string,
 .highlight .code .bullet,
@@ -1405,13 +1406,13 @@ article .content .caption {
 .highlight .code .variable,
 .highlight .code .template-tag,
 .highlight .code .template-variable {
-  color: #b8bb26;
+  color: #a6e22e;
 }
 .highlight .code .comment,
 .highlight .code .quote,
 .highlight .code .deletion,
 .highlight .code .meta {
-  color: #a89984;
+  color: #75715e;
 }
 .highlight .code .keyword,
 .highlight .code .selector-tag,
@@ -1423,19 +1424,13 @@ article .content .caption {
 .highlight .code .selector-id {
   font-weight: bold;
 }
-.highlight .code .number {
-  color: #b16286;
-}
-.highlight .code .operator {
-  color: #fe8019;
-}
 pre {
   overflow-x: auto;
   padding: 10px 15px;
   padding-bottom: 0;
   border: 1px dotted #666;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Menlo", "Meslo LG", monospace;
   line-height: 22px;
   -webkit-border-radius: 4px;
@@ -1456,7 +1451,7 @@ code {
   margin: 1rem 0;
   padding: 10px 15px;
   border-radius: 4px;
-  background: 'gruvbox-dark';
+  background: 'monokai';
   font-family: "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
 }
