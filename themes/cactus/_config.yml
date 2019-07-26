@@ -18,7 +18,7 @@ nav:
   # about: /about/
   articles: /archives/
   projects: http://github.com/jamesroyston/
-  resume: https://www.dropbox.com/s/dqpq5mpqkmstcz7/resume%28dev%29.pdf?raw=1
+  # resume: https://www.dropbox.com/s/dqpq5mpqkmstcz7/resume%28dev%29.pdf?raw=1
 
 
 # Links to your social media accounts.
@@ -101,12 +101,12 @@ favicon:
 
 # The color scheme that should be used to highlight codeblocks.
 # See source/css/_highlight for a list of all available color schemes.
-highlight: monokai
+highlight: solarized-dark
 
 # Set the color scheme.
 # Available color schemes are 'dark', 'light', 'classic' and 'white'.
 # Alternatively, add your own custom color scheme to source/css/_colors.
-colorscheme: dark
+colorscheme: classic
 
 # Maximal width of the page in rem units.
 page_width: 48
