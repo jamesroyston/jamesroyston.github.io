@@ -7,7 +7,7 @@ If you're like me, you're probably a frontend dev who enjoys writing JavaScript.
 
 **Resources I used**
 
-There are a couple of blog posts that go over deploying your react/express app in much higher detail and, quite frankly, they were extremely helpful in my endeavors. The only thing those posts lacked was the mongoDB and mongoAtlas portion. Here's those articles: 
+There are a couple of blog posts that go over deploying your react/express app in much higher detail and, quite frankly, they were extremely helpful in my endeavors. The only thing those posts lacked was the mongoDB and mongoAtlas portion. Here's those articles
 - [Dave Ceddia](https://daveceddia.com/deploy-react-express-app-heroku/)
 - [Chloe Chong](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
 
