@@ -14,24 +14,26 @@ If you're like me, you're probably a frontend dev who enjoys writing JavaScript.
 **Resources I used**
 
 There are a couple of blog posts that go over deploying your react/express app in much higher detail and, quite frankly, they were extremely helpful in my endeavors. The only thing those posts lacked was the mongoDB and mongoAtlas portion. Here's those articles: 
-- Dave Ceddia: [https://daveceddia.com/deploy-react-express-app-heroku/](https://daveceddia.com/deploy-react-express-app-heroku/)
-- Chloe Chong: [https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
+- [Dave Ceddia](https://daveceddia.com/deploy-react-express-app-heroku/)
+- [Chloe Chong](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
 
 -----
 
-#### Okay, let's get started
+### Okay, let's get started
 
 1) first copy your react app (the folder containing the project files) is inside of the root of your express project like so:
  ```
-./express-app
-| --- client/
-| ------- package.json
-| ------- index.js
-| ------- src/
-| ----------- app.js
-| ----------- components/
-| --- index.js
-| --- package.json
+ /
+|- package.json
+|- index.js
+|- models/
+    |- Posts.js
+|- client/
+    |- package.json
+	|- src/
+	   |- components/
+	   |- index.js
+	   |- app.js
 ```
 
 2) Now we need to set up the proxy so you can call the express api from React without using `http://localhost:3001` (port number isn't important for this ex). Navigate to your clientside `package.json` file and add:
@@ -40,21 +42,19 @@ There are a couple of blog posts that go over deploying your react/express app i
 ```
 3) Now we need to replace `http://localhost:3001` with `/api/yourDefaultRoute` in any AJAX calls made in your React app. If you're using Redux, this will likely be in your `actions.js` file(s). If you're using local component state, it'll likely be in any components that use the `componentDidMount()` lifecycle hook to fetch data. Ex: 
 ```javascript
-...
 componentDidMount() {
-	fetch('/api/yourDefaultRoute') <------ right THERE! :) 
-		.then(res => res.json())
-		.then(res => console.log(res))
-		.catch(err => console.log(err))
-...
+  fetch('/api/posts') <------ right THERE! :) 
+    .then(res => res.json())
+	  .then(res => console.log(res))
+	  .catch(err => console.log(err))
 ```
 
-4) Now we'll go back into the root directory of your express app and open up `index.js`. We need to ensure the following is in there:
+4) Now we'll go back into the root directory of your express app and open up `index.js`. We need to make sure node is serving the built version of our clientside app. We also want to ensure we've updated our express routes so that the proxy works.
 
 ``` javascript
-// index.js
 const cors = require('cors')
 const path = require('path')
+const Post = require('./models/Post')
 
 // prevents cors headaches when your react app calls your api
 app.use(cors())
@@ -62,24 +62,47 @@ app.use(cors())
 // serves the built version of your react app
 app.use(express.static(path.join(__dirname, 'client/build')))
 app.get('*', (req, res) => {
-	res.sendFile(path.join(__dirname + '/client/build/index.html'))
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
 })
 
 // for your REST calls, append api to the beginning of the path
-//ex: 
-app.get('/api/yourRouteName', async (request, resolve) => {
-	try {
-		console.log(resolve.json())
-	} catch (err) {
-		console.log(resolve.json( {message: error} )
-	}
+// ex: 
+app.get('/api/posts', async (req, res) => {
+  try {
+    res.json(await Post.find())
+    // Post is a mongoose schema we've defined in /models
+    // .find() is a method on the model for fetching all documents
+  } catch (err) {
+    res.json({message: err})
+  }
 })
 
 // ensures the proxy we set earlier is pointing to your express api
 const port = process.env.PORT || 3001
 app.listen(port, () => {
-	console.log(`listening on port ${port}`)
+  console.log(`listening on port ${port}`)
 });
+```
+_Here's the 'Post' mongoose schema._
+```javascript
+const mongoose = require('mongoose')
+
+const PostSchema = mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+})
+                      
+module.exports = mongoose.model('Post', PostSchema);
 ```
 
 5) Phew, getting there! Now navigate to your root (express') package.json and add this script: `"heroku-postbuild": "cd client && npm install && npm run build"` to the `"scripts"` object. 
@@ -119,8 +142,7 @@ If all went well, you should see the build logs flood your terminal and the end 
 
 **SICK, we are all done. Go to your project's URL (provided by the terminal, or via heroku's dashboard on their website) and be amazed by what you've accomplished!**
 
-If you want to see my working example, you can check it out here:
-[http://mern-app-msg.herokuapp.com/](http://mern-app-msg.herokuapp.com/) :heart:
+If you want to see my working example, you can check it out [here.](http://mern-app-msg.herokuapp.com/) :heart:
 
 P.S. This was my first blog post. Feedback is welcome! I hope y'all enjoyed this post and/or found it useful. 
 
