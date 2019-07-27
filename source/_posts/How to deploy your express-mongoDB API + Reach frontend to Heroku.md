@@ -30,10 +30,10 @@ There are a couple of blog posts that go over deploying your react/express app i
     |- Posts.js
 |- client/
     |- package.json
-	|- src/
-	   |- components/
-	   |- index.js
-	   |- app.js
+    |- src/
+       |- components/
+       |- index.js
+       |- app.js
 ```
 
 2) Now we need to set up the proxy so you can call the express api from React without using `http://localhost:3001` (port number isn't important for this ex). Navigate to your clientside `package.json` file and add:
@@ -43,10 +43,10 @@ There are a couple of blog posts that go over deploying your react/express app i
 3) Now we need to replace `http://localhost:3001` with `/api/yourDefaultRoute` in any AJAX calls made in your React app. If you're using Redux, this will likely be in your `actions.js` file(s). If you're using local component state, it'll likely be in any components that use the `componentDidMount()` lifecycle hook to fetch data. Ex: 
 ```javascript
 componentDidMount() {
-  fetch('/api/posts') <------ right THERE! :) 
+  fetch('/api/posts')
     .then(res => res.json())
-	  .then(res => console.log(res))
-	  .catch(err => console.log(err))
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
 ```
 
 4) Now we'll go back into the root directory of your express app and open up `index.js`. We need to make sure node is serving the built version of our clientside app. We also want to ensure we've updated our express routes so that the proxy works.
