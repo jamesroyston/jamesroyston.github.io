@@ -1,9 +1,3 @@
----
-title: How to deploy your express-mongoDB API + React frontend to Heroku
-date: 2019-07-24 17:58:42
-tags:
----
-
 If you're like me, you're probably a frontend dev who enjoys writing JavaScript. But you're also curious about how the "backend" works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. 
 
 **Some assumptions I'm making**
@@ -83,24 +77,19 @@ app.listen(port, () => {
   console.log(`listening on port ${port}`)
 });
 ```
+
 _Here's the 'Post' mongoose schema._
+
 ```javascript
 const mongoose = require('mongoose')
 
-const PostSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  description: {
-    type: String,
-    required: true
-  },
-  date: {
-    type: Date,
-    default: Date.now
+const PostSchema = mongoose.Schema(
+  {
+    topic: {type: String, required: true},
+    body: {type: String, required: true},
+    date: {type: Date, default: Date.now}
   }
-})
+)
                       
 module.exports = mongoose.model('Post', PostSchema);
 ```
