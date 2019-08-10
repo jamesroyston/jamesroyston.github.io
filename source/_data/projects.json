@@ -1,5 +1,10 @@
 [
     {
+        "name": "MERN Twitter-ish",
+        "url": "https://github.com/jamesroyston/mern-msg-board",
+        "desc": "IN-PROG: a full stack (mongoDB, Express, React, Node.js) web app for sharing your thoughts."
+    },
+    {
         "name": "TodoMVC Clone",
         "url": "https://github.com/jamesroyston/todomvc-clone/",
         "desc": "The quintessential todo app on every dev's portfolio- built with React."
