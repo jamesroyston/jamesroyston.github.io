@@ -125,7 +125,7 @@ open_graph:
   fb_admins:
   twitter_id:
   google_plus:
-  image: ./images/thumbnail.png
+  image: /images/thumbnail.png
 
 
 ##############################################################################
