@@ -1,34 +1,36 @@
 ---
 title: How to deploy your express-mongoDB API + React frontend to Heroku
 date: 2019-07-24 17:58:42
-tags:
+tags: javascript react mongodb heroku nodejs
 ---
 
-If you're like me, you're probably a frontend dev who enjoys writing JavaScript. But you're also curious about how the "backend" works. If so, follow along as I recap the roadblocks I ran into while trying to implement a task such as the title states. 
+# :wave:
 
-**Some assumptions I'm making**
+ If you're like me, you're probably a frontend dev who enjoys writing JavaScript but you've never worked with the backend. That said, you probably know, from a birds-eye view, how it _generally_ works. In this article, I'll go over how I used express and mongoDB to write a RESTful api to be used with my React frontend. I'll also go over how to setup a cluster on Mongo Atlas and connect express to it. 
+
+**Assumptions**
 - you already have a react app created.
 - you already have an express app created.
-- your express app is connected to mongo atlas already.
 
 **Resources I used**
 
 There are a couple of blog posts that go over deploying your react/express app in much higher detail and, quite frankly, they were extremely helpful in my endeavors. The only thing those posts lacked was the mongoDB and mongoAtlas portion. Here's those articles
-- [Dave Ceddia](https://daveceddia.com/deploy-react-express-app-heroku/)
-- [Chloe Chong](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
+- [Dave Ceddia's article](https://daveceddia.com/deploy-react-express-app-heroku/)
+- [Chloe Chong's article](https://medium.com/@chloechong.us/how-to-deploy-a-create-react-app-with-an-express-backend-to-heroku-32decfee6d18)
 
------
+--
 
-### Okay, let's get started
+#### Okay, let's get started
 
-1) first copy your react app (the folder containing the project files) is inside of the root of your express project like so:
+## 1) Combining your clientside and serverside code
+
+First, copy your react app (the folder containing the project files) is inside of the root of your express project so that your file tree looks like this:
  ```
- /
 |- package.json
-|- index.js
+|- server.js
 |- models/
     |- Posts.js
-|- client/
+|- client/             (the react folder)
     |- package.json
     |- src/
        |- components/
@@ -36,11 +38,60 @@ There are a couple of blog posts that go over deploying your react/express app i
        |- app.js
 ```
 
-2) Now we need to set up the proxy so you can call the express api from React without using `http://localhost:3001` (port number isn't important for this ex). Navigate to your clientside `package.json` file and add:
+## 2) Create a mongo atlas account
+
+Navigate to [the mongo atlas site](https://www.mongodb.com/cloud/atlas) and sign up for a free account.
+
+## 3) Setting up the cluster
+
+After you've signed up, we need to configure a mongo atlas project and cluster, and then create our first database on that cluster.
+
+![img](1.png)
+
+- On the next screen you can just click on 'create project' without filling anything out. After that, you'll see the main dashboard. Click on 'build a cluster'.
+
+![img](2.png)
+
+- From here you don't need to mess with any of the options. Simply click on 'create cluster' at the bottom right in the banner. Afterwards you'll see your cluster dashboard:
+
+![img](4.png)
+
+- Click on the connect button from the cluster dashboard and follow the steps for creating a mongo user for the cluster and whitelisting IP addresses. To whitelist all IP addresses (helpful for when we push to heroku), add `0.0.0.0` to the whitelist. 
+
+![img](5.png)
+
+![img](6.png)
+
+- At this point, you can proceed to choose a connection method, select 'connect your application' and copy the string per the instructions on the site.
+
+Note: you'll be replacing the <`password`> portion of that string with the password you created for your cluster's user (you made this like 2 minutes ago lol).
+
+- Quick last thing: from the cluster dashboard, click on collections and select the option to add your own data. From here you can create your first database and collection. I did 'my-db' and 'posts' for the database and collection. 
+
+## 4) Connecting to your cluster from express
+
+Open up `server.js` and add the following code:
+
+```javascript
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  { useNewUrlParser: true },
+  () => { console.log('connected to db') }
+)
+
+// swap process.env.DB_CONNECTION with your string
+```
+
+If you are familiar with the dotenv npm package, you'll have a `.env` file that has a `DB_CONNECTION=mongostring` value. For simplicity, we can just actually use the string instead. 
+
+## 5) Setting up the proxy (clientside)
+
+We need to set up the proxy so you can call the express api from React without using `http://localhost:3001` (port number isn't important for this ex). Navigate to your clientside `package.json` file and add:
 ```json
 "proxy": "http://localhost:3001"
 ```
-3) Now we need to replace `http://localhost:3001` with `/api/yourDefaultRoute` in any AJAX calls made in your React app. If you're using Redux, this will likely be in your `actions.js` file(s). If you're using local component state, it'll likely be in any components that use the `componentDidMount()` lifecycle hook to fetch data. Ex: 
+
+We also need to replace `http://localhost:3001` with `/api/yourDefaultRoute` in any AJAX calls made in your React app. If you're using Redux, this will likely be in your `actions.js` file(s). If you're using local component state, it'll likely be in any components that use the `componentDidMount()` lifecycle hook to fetch data. Ex: 
 ```javascript
 componentDidMount() {
   fetch('/api/posts')
@@ -49,7 +100,9 @@ componentDidMount() {
     .catch(err => console.log(err))
 ```
 
-4) Now we'll go back into the root directory of your express app and open up `index.js`. We need to make sure node is serving the built version of our clientside app. We also want to ensure we've updated our express routes so that the proxy works.
+## 6) Setting up the proxy (serverside) 
+
+Go back into the root directory of your express app and open up `server.js`. We need to make sure node is serving the built version of our clientside app. We also want to ensure we've updated our express routes so that the proxy works.
 
 ``` javascript
 const cors = require('cors')
@@ -84,7 +137,7 @@ app.listen(port, () => {
 });
 ```
 
-_Here's the 'Post' mongoose schema._
+_In case you were wondering what `Post` was in that last snippet, here's the 'Post' mongoose schema we're importing._
 
 ```javascript
 const mongoose = require('mongoose')
@@ -100,22 +153,33 @@ const PostSchema = mongoose.Schema(
 module.exports = mongoose.model('Post', PostSchema);
 ```
 
-5) Phew, getting there! Now navigate to your root (express') package.json and add this script: `"heroku-postbuild": "cd client && npm install && npm run build"` to the `"scripts"` object. 
+## 7) Add heroku post-build script to serverside package.json
+
+Phew, getting there! Now navigate to your root (express') package.json and add this script: 
+```
+"heroku-postbuild": "cd client && npm install && npm run build" 
+```
+to the `"scripts"` object. 
 
 Ok so that concludes the setup in your project folder. Feel free to test that everything still works by running your react app and express api in separate terminals and test your AJAX calls. Everything working? Eff yeah, let's continue!
 
-6) Now we just need to make sure we have heroku installed on our machine, create the heroku app, and run the deploy command. Here's the command for installing heroku. 
+## 8) Installing and configuring Heroku
+
+We need to make sure we have heroku installed on our machine, create the heroku app via the terminal, and run the deploy command. Here's the command for installing heroku. 
 ```bash
-brew tap heroku/brew && brew install heroku
+$ brew tap heroku/brew && brew install heroku
 ```
 (if you are on windows or linux, here's the instructions for those OSes: [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli))
 
-7) Did that work? Great! Now run each of these, one after the other:
-```
-git init
-heroku create my-project
-heroku login //this will redirect you to sign in via your default browser
-git push heroku master
+-- 
+
+Did that work? Great! Now run each of these, one after the other:
+```bash
+$ git init
+$ heroku create my-project
+$ heroku login 
+# this will redirect you to sign in via your default browser
+$ git push heroku master
 ```
 
 If all went well, you should see the build logs flood your terminal and the end result should look something like this:
@@ -133,9 +197,13 @@ If all went well, you should see the build logs flood your terminal and the end 
 ```
 :smile: :fireworks: :fire: :fire: :fire: 
 
-8) LAST and MOST CRUCIAL STEP _IMO_: go into mongo atlas and ensure you've enabled a global IP address whitelist for your mongoDB cluster. If you don't, your app will be running but your data won't ever get fetched. You'll have a network tab full of 503 network errors :sweat_smile: (_this had me stuck for quite a while. Nevermind the fact that I probably should have been asleep at the time I was hammering away on this project at 2am...._)
+## 9) LAST and MOST CRUCIAL STEP _IMO_: double check that you enabled a global `0.0.0.0` whitelist for your cluster PLS
 
-**SICK, we are all done. Go to your project's URL (provided by the terminal, or via heroku's dashboard on their website) and be amazed by what you've accomplished!**
+Go into mongo atlas and ensure you've enabled a global IP address whitelist for your mongoDB cluster (per step 3 in this tutorial). If you don't, your app will be running but your data won't ever get fetched. You'll have a network tab full of 503 network errors :sweat_smile: (_this had me stuck for quite a while. Nevermind the fact that I probably should have been asleep at the time I was hammering away on this project at 2am...._)
+
+## SICK, we are all done. 
+
+Go to your project's URL (provided by the terminal, or via heroku's dashboard on their website) and be amazed by what you've accomplished! Pro-tip: on macOS cmd+click will open links from the terminal in your default browser
 
 If you want to see my working example, you can check it out [here.](http://mern-app-msg.herokuapp.com/) :heart:
 
@@ -143,8 +211,3 @@ P.S. This was my first blog post. Feedback is welcome! I hope y'all enjoyed this
 
 --
 James
-
-> Written with [StackEdit](https://stackedit.io/).
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4ODY4MjY2ODldfQ==
--->
