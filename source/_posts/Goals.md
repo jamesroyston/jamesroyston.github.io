@@ -1,7 +1,9 @@
 ---
 title: Goals
 date: 2019-06-23 09:37:29
-tags: goals  web-development
+tags: 
+  - goals
+  - web development
 ---
 
 # Hello Internet! :wave:

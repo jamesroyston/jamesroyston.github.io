@@ -7,7 +7,7 @@
     {
         "name": "(mern) Message Board",
         "url": "https://github.com/jamesroyston/mern-msg-board",
-        "desc": "full stack msg board-- built for learning how to implement auth using JWTs (sessions < jwts, tbh)."
+        "desc": "full stack msg board-- built for learning how to implement auth using JWTs (sessions > jwts, tbh)."
     },
     {
         "name": "TodoMVC Clone",
@@ -17,6 +17,6 @@
     {
         "name": "React Weather",
         "url": "https://github.com/jamesroyston/weatherific-fork",
-        "desc": "Check your location's weather-- utilizing the Open Weather API."
+        "desc": "Check your location's weather. Basic React app utilizing the Open Weather API."
     }
 ]

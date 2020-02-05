@@ -1,7 +1,12 @@
 ---
 title: How to deploy your express-mongoDB API + React frontend to Heroku
 date: 2019-07-24 17:58:42
-tags: javascript react mongodb heroku nodejs
+tags: 
+  - javascript
+  - react
+  - mongodb
+  - heroku
+  - nodejs
 ---
 
 # :wave:
@@ -20,7 +25,7 @@ There are a couple of blog posts that go over deploying your react/express app i
 
 --
 
-#### Okay, let's get started
+# Okay, let's get started
 
 ## 1) Combining your clientside and serverside code
 
