@@ -1,7 +1,7 @@
 [
     {
-        "name": "(mern) Notes App",
-        "url": "https://github.com/jamesroyston/notes-ittybam-challenge",
+        "name": "HighNotes",
+        "url": "https://github.com/jamesroyston/HighNotes",
         "desc": "full stack note taking app. share notes with people. sign up/login. mongo session enabled. bootstrap because CSS is sometimes hard..."
     },
     {
