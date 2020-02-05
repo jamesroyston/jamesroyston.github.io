@@ -1,17 +1,22 @@
 [
     {
-        "name": "MERN Twitter-ish",
+        "name": "(mern) Notes App",
+        "url": "https://github.com/jamesroyston/notes-ittybam-challenge",
+        "desc": "full stack note taking app. share notes with people. sign up/login. mongo session enabled. bootstrap because CSS is sometimes hard..."
+    },
+    {
+        "name": "(mern) Message Board",
         "url": "https://github.com/jamesroyston/mern-msg-board",
-        "desc": "IN-PROG: a full stack (mongoDB, Express, React, Node.js) web app for sharing your thoughts."
+        "desc": "full stack msg board-- built for learning how to implement auth using JWTs (sessions < jwts, tbh)."
     },
     {
         "name": "TodoMVC Clone",
         "url": "https://github.com/jamesroyston/todomvc-clone/",
-        "desc": "The quintessential todo app on every dev's portfolio- built with React."
+        "desc": "The quintessential todo app; bought completely into React hooks."
     },
     {
         "name": "React Weather",
         "url": "https://github.com/jamesroyston/weatherific-fork",
-        "desc": "React app utilizing the Open Weather API."
+        "desc": "Check your location's weather-- utilizing the Open Weather API."
     }
 ]
