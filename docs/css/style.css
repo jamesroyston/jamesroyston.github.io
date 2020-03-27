@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 .inline {
   display: inline;
 }
@@ -453,7 +454,7 @@ body {
   font-display: swap;
   font-weight: 500;
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   flex: 1;
@@ -597,9 +598,8 @@ body {
 #header #nav {
   color: #ca3e47;
   letter-spacing: 0.01em;
-  font-weight: 200;
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 #header #nav ul {
   margin: 0;

@@ -1,23 +1,23 @@
 nav:
-  home: Home
-  about: About
-  articles: Writing
-  tag: Tag
-  category: Category
-  projects: Projects
-  search: Search
-  resume: Resumé
+  home: home
+  about: about
+  articles: posts
+  tag: tag
+  category: category
+  projects: projects
+  search: search
+  resume: resumé
 
 footer:
-  copyright: Copyright
+  copyright: copyright
 
 index:
-  short_bio: I'm a web developer working in OK, US.
-  find_me_on: Connect with me through
-  enum_comma: ','
-  enum_and: '&'
-  articles: Articles
-  projects: Code
+  short_bio: 💻😊software engineer @ anautics, inc
+  find_me_on: connect with me >>
+  enum_comma: " / "
+  enum_and: "&"
+  articles: posts
+  projects: projects
   topics: Topics
   most_recent: Most recent
 
