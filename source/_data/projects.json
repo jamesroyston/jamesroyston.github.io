@@ -1,22 +1,17 @@
 [
-    {
-        "name": "HighNotes",
-        "url": "https://github.com/jamesroyston/HighNotes",
-        "desc": "full stack note taking app. share notes with people. sign up/login. mongo session enabled. bootstrap because CSS is sometimes hard..."
-    },
-    {
-        "name": "(mern) Message Board",
-        "url": "https://github.com/jamesroyston/mern-msg-board",
-        "desc": "full stack msg board-- built for learning how to implement auth using JWTs (sessions > jwts, tbh)."
-    },
-    {
-        "name": "TodoMVC Clone",
-        "url": "https://github.com/jamesroyston/todomvc-clone/",
-        "desc": "The quintessential todo app; bought completely into React hooks."
-    },
-    {
-        "name": "React Weather",
-        "url": "https://github.com/jamesroyston/weatherific-fork",
-        "desc": "Check your location's weather. Basic React app utilizing the Open Weather API."
-    }
+  {
+    "name": "HighNotes",
+    "url": "https://github.com/jamesroyston/HighNotes",
+    "desc": "full stack note taking app. share notes with people. sign up/login. mongo session enabled."
+  },
+  {
+    "name": "Message Board",
+    "url": "https://github.com/jamesroyston/mern-msg-board",
+    "desc": "full stack msg board-- built to learn how to implement auth using JWTs."
+  },
+  {
+    "name": "TodoMVC Clone",
+    "url": "https://github.com/jamesroyston/todomvc-clone/",
+    "desc": "the quintessential todo app."
+  }
 ]

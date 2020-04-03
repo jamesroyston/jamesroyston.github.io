@@ -496,9 +496,6 @@ body {
   font-size: 1.3em;
   margin: 0.1em;
 }
-.content a.icon:first-of-type {
-  margin-left: -0.1em;
-}
 .content a.icon:hover {
   color: #fc6;
 }

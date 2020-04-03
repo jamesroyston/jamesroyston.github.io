@@ -72,7 +72,7 @@ post:
 #   - url: where the logo can be found
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
-  enabled: true
+  enabled: false
   width: 60
   height: 60
   url: /images/profile.png
@@ -92,7 +92,7 @@ favicon:
     url: /images/favicon.ico
     gravatar: false
   android:
-    url: /images/favicon-192x192.png
+    url: /images/android-chrome-192x192.png
     gravatar: false
   apple:
     url: /images/apple-touch-icon.png
