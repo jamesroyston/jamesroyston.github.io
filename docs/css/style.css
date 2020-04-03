@@ -493,7 +493,11 @@ body {
 }
 .content a.icon {
   background: none;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  margin: 0.1em;
+}
+.content a.icon:first-of-type {
+  margin-left: -0.1em;
 }
 .content a.icon:hover {
   color: #fc6;
@@ -817,11 +821,11 @@ body {
   content: "#";
 }
 #header-post #toc .toc-level-3 {
-  color: #666;
+  color: #ffae57;
   font-size: 0.7rem;
 }
 #header-post #toc .toc-level-4 {
-  color: #525252;
+  color: #ff8d13;
   font-size: 0.4rem;
 }
 #header-post #toc .toc-level-5 {
@@ -990,7 +994,7 @@ body {
   content: "#";
 }
 #footer-post #toc-footer .toc-level-3 {
-  color: #666;
+  color: #ffae57;
   font-size: 0.7rem;
   line-height: 15px;
 }
@@ -1023,7 +1027,7 @@ body {
   display: block;
   margin-right: 16px;
   min-width: 100px;
-  color: #666;
+  color: #ffae57;
   font-size: 14px;
 }
 @media (min-width: 480px) {
@@ -1121,16 +1125,16 @@ article .content blockquote:before {
 }
 article .content blockquote footer {
   margin: line-height 0;
-  color: #666;
+  color: #ffae57;
   font-size: 11px;
 }
 article .content blockquote footer a {
-  background-image: linear-gradient(transparent, transparent 5px, #666 5px, #666);
-  color: #666;
+  background-image: linear-gradient(transparent, transparent 5px, #ffae57 5px, #ffae57);
+  color: #ffae57;
 }
 article .content blockquote footer a:hover {
-  background-image: linear-gradient(transparent, transparent 4px, #858585 4px, #858585);
-  color: #858585;
+  background-image: linear-gradient(transparent, transparent 4px, #ffbe79 4px, #ffbe79);
+  color: #ffbe79;
 }
 article .content blockquote footer cite:before {
   padding: 0 0.5em;
@@ -1199,7 +1203,7 @@ article .content .caption {
   display: block;
   margin-right: 16px;
   min-width: 100px;
-  color: #666;
+  color: #ffae57;
   font-size: 14px;
 }
 @media (min-width: 480px) {
@@ -1220,7 +1224,7 @@ article .content .caption {
   bottom: 0;
   margin-bottom: 10px;
   width: 100%;
-  color: #666;
+  color: #ffae57;
   vertical-align: top;
   text-align: center;
   font-size: 11px;
@@ -1247,12 +1251,12 @@ article .content .caption {
   margin-right: 0;
 }
 #footer a {
-  color: #666;
+  color: #ffae57;
   text-decoration: underline;
   background-image: none;
 }
 #footer a:hover {
-  color: #858585;
+  color: #ffbe79;
 }
 #footer .footer-left {
   height: 20px;
@@ -1346,7 +1350,7 @@ article .content .caption {
   color: #d7dce2;
 }
 #tag-cloud .tag-cloud-title {
-  color: #666;
+  color: #ffae57;
 }
 #tag-cloud .tag-cloud-tags {
   clear: both;
@@ -1357,10 +1361,10 @@ article .content .caption {
   margin: 10px;
 }
 #categories .category-list-title {
-  color: #666;
+  color: #ffae57;
 }
 #categories .category-list .category-list-item .category-list-count {
-  color: #666;
+  color: #ffae57;
 }
 #categories .category-list .category-list-item .category-list-count:before {
   content: " (";

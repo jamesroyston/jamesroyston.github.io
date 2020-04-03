@@ -12,9 +12,10 @@ footer:
   copyright: copyright
 
 index:
-  short_bio: 💻😊software engineer @ anautics, inc
-  find_me_on: connect with me >>
-  enum_comma: " / "
+  short_bio1: 💻😊software engineer @ anautics, inc.
+  short_bio2: 💕✨working with reactjs
+  find_me_on: ✌👉
+  enum_comma: " "
   enum_and: "&"
   articles: posts
   projects: projects
