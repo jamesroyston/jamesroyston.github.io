@@ -666,7 +666,6 @@ body {
   }
   #header #nav li:not(:first-child) {
     padding-top: 1rem;
-    padding-left: 80px;
     font-size: 1rem;
   }
 }
