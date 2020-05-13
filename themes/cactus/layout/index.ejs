@@ -67,7 +67,12 @@
   <ul class="project-list">
     <% for(var obj in site.data.projects){ %>
       <li class="project-item">
-        <a href="<%= site.data.projects[obj].url %>"><%= site.data.projects[obj].name %></a>: <%- markdown(site.data.projects[obj].desc) %>
+        <span class="project-title">
+          <%= site.data.projects[obj].name %> -
+        </span>
+        <a href="<%= site.data.projects[obj].url %>">github</a> - 
+        <a href="<%= site.data.projects[obj].hosted %>">live</a>
+        : <%- markdown(site.data.projects[obj].desc) %>
       </li>
     <% } %>
   </ul>

@@ -12,9 +12,9 @@ footer:
   copyright: copyright
 
 index:
-  short_bio1: 💻😊 software engineer @ anautics, inc.
-  short_bio2: 💕✨ working with reactjs
-  find_me_on: ✌👉
+  short_bio1: software engineer @ anautics 💻😊
+  short_bio2: working with reactjs 💕✨
+  find_me_on: 👉
   enum_comma: " "
   enum_and: "&"
   articles: posts
@@ -29,10 +29,10 @@ post:
     back_to_top: Back to top
     share: Share post
   mobile:
-    menu: Menu
-    toc: TOC
-    back_to_top: Top
-    share: Share
+    menu: menu
+    toc: toc
+    back_to_top: top
+    share: share
 
 search:
   search: Search...

@@ -1,17 +1,20 @@
 [
   {
-    "name": "HighNotes",
+    "name": "highnotes + laravel backend",
+    "url": "https://github.com/jamesroyston/highnotes-laravel",
+    "hosted": "https://gethighnotes.herokuapp.com/",
+    "desc": "highnotes ported to laravel."
+  },
+  {
+    "name": "highnotes",
     "url": "https://github.com/jamesroyston/HighNotes",
+    "hosted": "https://notes-ittybam.herokuapp.com/",
     "desc": "full stack note taking app. share notes with people. sign up/login. mongo session enabled."
   },
   {
-    "name": "Message Board",
+    "name": "a message board",
     "url": "https://github.com/jamesroyston/mern-msg-board",
+    "hosted": "https://mern-app-msg.herokuapp.com/",
     "desc": "full stack msg board-- built to learn how to implement auth using JWTs."
-  },
-  {
-    "name": "TodoMVC Clone",
-    "url": "https://github.com/jamesroyston/todomvc-clone/",
-    "desc": "the quintessential todo app."
   }
 ]

@@ -1045,6 +1045,14 @@ body {
 .project-list .project-item p {
   display: inline;
 }
+.project-list .project-item .project-title {
+  font-weight: bold;
+  font-size: 1em;
+  color: #ffae57;
+}
+.project-list .project-item a {
+  color: #5ccfe6;
+}
 article header .posttitle {
   margin-top: 0;
   margin-bottom: 0;
@@ -1104,7 +1112,7 @@ article .content blockquote {
   margin: 1rem 10px;
   padding: 0.5em 10px;
   background: inherit;
-  color: #bae67e;
+  color: #5ccfe6;
   quotes: "\201C" "\201D" "\2018" "\2019";
   font-weight: bold;
 }
@@ -1113,7 +1121,7 @@ article .content blockquote p {
 }
 article .content blockquote:before {
   margin-right: 0.25em;
-  color: #bae67e;
+  color: #5ccfe6;
   content: "\201C";
   vertical-align: -0.4em;
   font-size: 2em;

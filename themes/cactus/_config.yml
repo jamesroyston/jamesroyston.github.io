@@ -72,7 +72,7 @@ post:
 #   - url: where the logo can be found
 #   - gravatar: whether to use your Gravatar as the logo
 logo:
-  enabled: false
+  enabled: true
   width: 60
   height: 60
   url: /images/profile.png
